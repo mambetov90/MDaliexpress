@@ -11,11 +11,9 @@ public class BaseFragment {
 
     public void closePopups() {
         Set<String> allWindowHandles = driver.getWindowHandles();
-            for(int i=0; i < allWindowHandles.size(); i++){
-                for(String name:allWindowHandles){
-                    driver.switchTo().window(name);
-                    driver.findElement(By.xpath("//img[@class='btn-close']")).click();
-                }
+            for(String singleWindow:allWindowHandles){
+                driver.switchTo().window(singleWindow);
+                driver.findElement(By.xpath("//img[@class='btn-close']")).click();
             }
     }
 
